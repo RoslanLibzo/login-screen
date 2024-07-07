@@ -1,12 +1,12 @@
 <?php 
-require_once('db_config.php'); 
-// Sample users data
+require_once 'db_config.php'; 
+// //Sample users data
 // $users = [
-//     ['user1', 'Password1!@'],
-//     ['user2', 'Password2!@'],
-//     ['user3', 'Password3!@'],
-//     ['user4', 'Password4!@'],
-//     ['user5', 'Password5!@']
+//     ['master1', 'Password1!@'],
+//     ['master2', 'Password2!@'],
+//     ['master3', 'Password3!@'],
+//     ['master4', 'Password4!@'],
+//     ['master5', 'Password5!@']
 // ];
 
 // // Hash passwords and insert into database

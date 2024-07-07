@@ -1,6 +1,9 @@
 # Use the official PHP image as a base image
 FROM php:8.1-apache
 
+# Install Vite globally
+RUN npm install -g create-vite
+
 # Enable mod_rewrite
 RUN a2enmod rewrite
 
