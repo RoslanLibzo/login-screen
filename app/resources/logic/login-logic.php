@@ -1,4 +1,7 @@
 <?php
+session_name('loginSession'); 
+session_start();
+
 // Check if the form is submitted with POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'config/db_config.php';
@@ -7,12 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
     $password = $_POST["password"];
 
+    // Validate username and password
     if (empty($username) || empty($password)) {
         header("Location: /login?error=error");
         exit;
     }
 
-    // Validate username and password (replace with database check)
+    
     // Prepare a statement to query the database
     $stmt = $conn->prepare("SELECT id, username, password FROM user_info WHERE username = ?");
   
@@ -36,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $db_username;
             $_SESSION['logged_in'] = true;
 
-            // Redirect to welcome page or any authenticated page
+            // Redirect to welcome page
             header("Location: /welcome");
             exit;
         } else {
