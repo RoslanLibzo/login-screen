@@ -1,0 +1,12 @@
+body {
+    background-color: grey;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 0;
+    right: 0;   
+}
+.password-field {
+    position: relative;
+}

@@ -1,11 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
-    console.log("HEY!");
-
-    var username = document.querySelector('.username-form');
-    var passwordForm = document.querySelector('.username-password');
-});
-
 (() => {
     'use strict'
 
@@ -66,4 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
             form.classList.add('was-validated');
         }
     }, false);
+
+
+
+
+    // Section for show hide button for password
+
+    const passwordField = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        togglePasswordBtn.textContent = type === 'password' ? 'Show' : 'Hide';
+    });
+
   })()
