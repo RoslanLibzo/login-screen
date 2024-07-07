@@ -1,5 +1,14 @@
-# H1  This will be a quick login page setup that will be functioning using docker, to run this, you can either run it locally with your xamp setup, or you can use the preset docker file.
-To build the docker file, all you need to do is type docker-compose up --build -d or without the -d flag if you want the container to stay live in your terminal.
+# H1  Login page setup 
+This currently works using docker.
 
-After running that, you are ready to interact with everything.
+1. If you have docker installed, all you have to do is run docker-compose up --build -d Inside of your terminal
+2. You should now be able to access all the pages on localhost:8080
+3. You can Check what routes are available in the index.php
 
+Everything should be all good!
+
+For sample Data checkout the seed_data.php.
+
+You can use that data to test logging into the site. which if successful will take you to the welcome page.
+
+#H2 The Setup is missing the .env file for security purposes. Check the wp_config file to see what it's expecting.
