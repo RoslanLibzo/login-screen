@@ -1,6 +1,12 @@
 # Use the official PHP image as a base image
 FROM php:8.1-apache
 
+# Enable mod_rewrite
+RUN a2enmod rewrite
+
+# Restart Apache
+RUN service apache2 restart
+
 # Copy project files to the /var/www/html directory inside the container
 COPY . /var/www/html
 
