@@ -1,11 +1,16 @@
 <?php
-require_once 'config/db_config.php';
-
 // Check if the form is submitted with POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once 'config/db_config.php';
+
     // Retrieve username and password from the form
-    $username = $_POST["username"];
-    $password = $_POST["password"]; 
+    $username = trim($_POST["username"]);
+    $password = $_POST["password"];
+
+    if (empty($username) || empty($password)) {
+        header("Location: /login?error=error");
+        exit;
+    }
 
     // Validate username and password (replace with database check)
     // Prepare a statement to query the database
@@ -27,6 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         if (password_verify($password, $db_password)) {
             // Password correct, set session variables
+            $_SESSION['user_id'] = $id;
+            $_SESSION['username'] = $db_username;
+            $_SESSION['logged_in'] = true;
+
             // Redirect to welcome page or any authenticated page
             header("Location: /welcome");
             exit;
