@@ -1,25 +1,27 @@
 <?php 
 session_start();
 
-// Check if the requested URL is for home
-if ($_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/home' ) {
-  // Include the login page
-  include('app/resources/pages/home.php');
-  exit;
-}
+// Define base path for routing simplicity
+$basePath = 'app/resources/pages/';
 
-// Check if the requested URL is for login
-if ($_SERVER['REQUEST_URI'] === '/login') {
-  // Include the login page
-  include('app/resources/pages/login.php');
-  exit;
-}
-
-// Check if the requested URL is for welcome (assuming successful login LOGIC to be added later)
-if ($_SERVER['REQUEST_URI'] === '/welcome') {
-  // Include the welcome page
-  include('app/resources/pages/welcome.php');
-  exit;
+// Route requests based on the requested URI
+switch ($_SERVER['REQUEST_URI']) {
+  case '/':
+  case '/home':
+      include($basePath . 'home.php');
+      exit;
+  case '/login':
+      include($basePath . 'login.php');
+      exit;
+  case '/welcome':
+      include($basePath . 'welcome.php');
+      exit;
+  case '/login/access':
+      include('app/resources/logic/login-logic.php'); // Adjust the path as needed
+      exit;
+  default:
+      echo "Invalid request.";
+      exit;
 }
 
 // If no match, display a default message (optional)
