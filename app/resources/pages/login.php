@@ -15,8 +15,10 @@ if ($error === 'invalid_credentials') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="app/public/css/app.css">
 
 </head>
+
 <body>
     <div class="app container-sm">
         <div class="row mt-5">
@@ -50,9 +52,10 @@ if ($error === 'invalid_credentials') {
                         <input class="form-control username-form <?php if($error == 'username' || $error == 'both'){ echo 'is-invalid'; }?>" name="username" id="username" aria-describedby="userName" required>
                         <?php if($error == 'username'){ ?><div class="text-danger mb-4 fs-6 border-bottom border-danger">Username incorrect</div><?php }; ?>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label password-label">Password</label>
+                    <div class="mb-3 password-field">
+                        <label for="password" class="form-label password-label pb-2 pt-2">Password</label>
                         <input id="password" type="password " class="form-control password-form <?php if($error == 'password' || $error == 'both' || $error =="username"){ echo 'is-invalid'; } ?>" name="password" id="password" required>
+                        <button type="button" class="btn btn-dark" id="togglePassword">Show</button>
                         <?php if($error == 'password' || $error =='user'){ ?><div class="text-danger mb-4 fs-6 border-bottom border-danger">Password incorrect</div><?php }; ?>
                         <div class="invalid-feedback">
                         Your password must be at least 8 characters long and include uppercase, lowercase, number, and special character.
