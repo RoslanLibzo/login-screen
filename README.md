@@ -7,4 +7,4 @@ This currently works using docker.
 
 Everything should be all good! For sample Data checkout the seed_data.php.You can use that data to test logging into the site. which if successful will take you to the welcome page.
 
-#H2 The Setup is missing the .env file for security purposes. Check the wp_config file to see what it's expecting.
+# H2 The Setup is missing the .env file for security purposes. Check the wp_config file to see what it's expecting.
