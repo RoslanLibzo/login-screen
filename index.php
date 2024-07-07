@@ -4,8 +4,18 @@ session_start();
 // Define base path for routing simplicity
 $basePath = 'app/resources/pages/';
 
+// Extract the request URI
+$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Extract and parse the query string if it exists
+$queryString = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+$queryParams = [];
+if ($queryString !== null) {
+    parse_str($queryString, $queryParams);
+}
+
 // Route requests based on the requested URI
-switch ($_SERVER['REQUEST_URI']) {
+switch ($requestUri) {
   case '/':
   case '/home':
       include($basePath . 'home.php');
