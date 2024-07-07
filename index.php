@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// ROUTER!!
 
 // Define base path for routing simplicity
 $basePath = 'app/resources/pages/';
